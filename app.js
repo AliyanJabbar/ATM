@@ -49,7 +49,7 @@ if (answer.pin === 2468) {
             },
         ]);
         MyBalance -= fastcash.fastCash;
-        console.log("your remaining balance is" + " " + MyBalance);
+        console.log("your remaining balance is:" + " " + MyBalance);
     }
     else if (operationAns.operation === "Deposit") {
         let Deposit = await inquirer.prompt([
@@ -61,7 +61,7 @@ if (answer.pin === 2468) {
         ]);
         if (operationAns.operation === "Deposit") {
             MyBalance += Deposit.amount;
-            console.log(`Your balance after deposit is: ${MyBalance}`);
+            console.log(`Your balance after deposit is: ${MyBalance}`); //here I have used template literals
         }
     }
 }
