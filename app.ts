@@ -72,8 +72,6 @@
 //   console.log("Incorrect pin code");
 // }
 
-
-
 //ATM 2 with some new features:
 
 import inquirer from "inquirer";
@@ -137,7 +135,7 @@ if (answer.pin === MyPin) {
           console.log(`Your current balance is 10000`);
         } else {
           currentBalance -= WithdrawAnswer.withdrawAnswer;
-          console.log(`Your remaining balance is : ${currentBalance}`)
+          console.log(`Your remaining balance is : ${currentBalance}`);
         }
       }
       break;
