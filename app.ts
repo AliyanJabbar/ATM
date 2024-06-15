@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // import inquirer from "inquirer";
 // import Choice from "inquirer/lib/objects/choice.js";
 
@@ -76,6 +78,7 @@
 
 import inquirer from "inquirer";
 
+let condition = true 
 let currentBalance = 10000;
 
 let MyPin = 2468;
@@ -88,6 +91,8 @@ let answer = await inquirer.prompt({
 
 if (answer.pin === MyPin) {
   console.log("Correct Pin code!!!");
+
+  while(condition){
   let operationAnswer = await inquirer.prompt([
     {
       name: "operation",
@@ -99,6 +104,7 @@ if (answer.pin === MyPin) {
         "Check Balance",
         "FastCash",
         "Change Pin",
+        "exit",
       ],
     },
   ]);
@@ -115,7 +121,7 @@ if (answer.pin === MyPin) {
         if (DepositAnswer.depositAnswer < 0) {
           console.log("invalid deposit amount");
         } else {
-          currentBalance += DepositAnswer.deposit;
+          currentBalance += DepositAnswer.depositAnswer;
           console.log(`Your new balance is : ${currentBalance}`);
         }
       }
@@ -177,11 +183,17 @@ if (answer.pin === MyPin) {
         console.log(`Your new pin is: ${MyPin}`);
       }
       break;
+    case "exit":
+      {
+        condition = false 
+      }
+      break;
 
     default: {
       console.log("something went wrong");
     }
   }
-} else {
+}
+ } else {
   console.log("Invalid Pin");
 }
